@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 
 // CORS configuration: Only allow your frontend domain
-const allowedOrigins = ['https://car-management-frontend-self.vercel.app']; // Replace this with your actual frontend URL
+const allowedOrigins = ['https://car-management-frontend-self.vercel.app/']; // Replace this with your actual frontend URL
 
 const corsOptions = {
   origin: function (origin, callback) {
