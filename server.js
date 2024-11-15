@@ -7,7 +7,25 @@ const cors = require('cors');
 dotenv.config();
 
 const app = express();
-app.use(cors());
+
+// CORS configuration: Only allow your frontend domain
+const allowedOrigins = ['https://car-management-frontend-self.vercel.app']; // Replace this with your actual frontend URL
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow local development or specific origins
+    if (allowedOrigins.includes(origin) || !origin) { 
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Methods allowed
+  allowedHeaders: ['Content-Type', 'Authorization'],  // Headers allowed
+};
+
+// Enable CORS with the specified options
+app.use(cors(corsOptions));
 
 // Increase the request body size limit to 50MB (adjust as needed)
 app.use(express.json({ limit: '50mb' }));  // Set limit to 50MB for JSON requests
