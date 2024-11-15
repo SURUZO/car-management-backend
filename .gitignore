@@ -1,0 +1,16 @@
+# Node modules (these are huge and can be reinstalled)
+node_modules/
+
+# .env file - it contains sensitive environment variables
+.env
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE configuration files (Optional, depends on your IDE)
+.vscode/
+.idea/
